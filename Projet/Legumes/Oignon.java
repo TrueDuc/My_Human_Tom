@@ -1,5 +1,5 @@
 package INFO.java.Projet.Legumes;
 
-public class Oignon {
-    
-}
+import INFO.java.Projet.Cuisable;
+
+public class Oignon implements Cuisable {

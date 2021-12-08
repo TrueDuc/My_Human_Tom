@@ -1,17 +1,15 @@
 package INFO.java.Projet;
 
 public class Nutriments {
-    private int[7] tableau;
+    private int[] tableau;
+    
     // calories, matieresGrasses, sucre, proteines, sel, vitamines, mineraux
 
     public Nutriments(int[] tableau) { // constructeur de nutriments
+        this.tableau = new int[7];
         for(int i = 0; i < 7; i++) {
             this.tableau[i] = tableau[i];
         }
-    }
-
-    public Nutriments() { // constructeur par défaut
-        this([0,0,0,0,0,0,0]);
     }
 
     public void augmenterStates(double multiplicateur) { // permet de multiplier les states des nutriments (quand on cuit/compose)

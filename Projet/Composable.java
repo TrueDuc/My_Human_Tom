@@ -1,5 +1,5 @@
 package INFO.java.Projet;
 
 public interface Composable {
-    public void composer();
+    public Plat composer(Composable composable);
 }

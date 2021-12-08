@@ -1,5 +1,6 @@
 package INFO.java.Projet.Legumes;
 
-public class Carotte {
+public class Carotte implements Cuisable {
     
 }
+

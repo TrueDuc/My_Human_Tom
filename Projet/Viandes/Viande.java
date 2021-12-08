@@ -16,17 +16,18 @@ public abstract class Viande extends Nourriture implements Cuisable, Composable 
         cuit = false;
     }
 
-    public void cuire() { // cuire 1 viande, cuisable 1 fois max
+    public Viande cuire() { // cuire 1 viande, cuisable 1 fois max
         if (cuit == false) {
             nutriments.augmenterStates(3.0);
         } else {
             // System.out.println("Impossible, la viande est déjà cuite");
         }
+        return ;// a voir
     }
 
-    public void composer(Plat plat) {
+    public Plat composer(Composable composable) {
         
-        
+        return ; // a voir
     }
 
 

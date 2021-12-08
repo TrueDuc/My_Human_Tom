@@ -1,5 +1,5 @@
 package INFO.java.Projet;
 
 public interface Cuisable {
-    public void cuire(); 
+    public Nourriture cuire(); 
 }

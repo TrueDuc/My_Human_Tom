@@ -1,5 +1,5 @@
 package INFO.java.Projet.Legumes;
 
-public class Courgette {
+public class Radis {
     
 }
