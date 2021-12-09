@@ -1,8 +1,9 @@
 package INFO.java.Projet;
+import INFO.java.Projet.Nourriture;
 
 import java.util.ArrayList;
 
-public class Plat extends Nourriture {
+public class Plat extends Nourriture implements Composable {
     private ArrayList<Nourriture> plat;
 
     public Plat() { // constructeur de plat
@@ -10,18 +11,29 @@ public class Plat extends Nourriture {
         plat = new ArrayList<>();
     }
 
-    public void ajouter(Nourriture nourriture) { // plat de 2 aliments 
-        plat.add(nourriture);
-        this.nutriments.addStates(nourriture.nutriments);
-        this.nutriments.augmenterStates(1.1);
+    public Plat composer(Composable composable) {
+        Plat res = new Plat();
+        for (Nourriture nourriture : plat) {
+            res.ajouter(nourriture, COEFF);
+        } 
+        res.ajouter(composable, COEFF);
+        return res;
     }
 
-    public void ajouter(Nourriture nourriture1, Nourriture nourriture2) { // plat de 3 aliments MAX
-        plat.add(nourriture1);
-        this.nutriments.addStates(nourriture1.nutriments);
-        plat.add(nourriture2);
-        this.nutriments.addStates(nourriture2.nutriments);
-        this.nutriments.augmenterStates(1.1);
+
+
+    public String getNom() {
+        String res = "Plat a base de :";
+        for (Nourriture nourriture : plat) {
+            res += " " + nourriture.getNom();
+        }
+        return res;
+    }
+
+    public void ajouter(Nourriture nourriture, double coeff) { // plat de 2 aliments 
+        plat.add(nourriture);
+        this.nutriments.addStates(nourriture.nutriments);
+        this.nutriments.augmenterStates(coeff);
     }
     
 }

@@ -14,8 +14,14 @@ public abstract class Legume extends Nourriture implements Composable {
         cuit = false;
     }
 
-    public void composer(Plat plat) {
-        
-        
+    public Plat composer(Composable composable) {
+        Plat plat = new Plat();
+        plat.ajouter(this, 1);
+        if (composable instanceof Viande) {
+            plat.ajouter(composable, COEFF);
+        } else {
+            plat.ajouter(composable, COEFF);
+        }
+        return plat; // a voir
     }
 }

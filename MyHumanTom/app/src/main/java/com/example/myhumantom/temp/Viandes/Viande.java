@@ -1,5 +1,7 @@
 package INFO.java.Projet.Viandes;
 
+import com.example.myhumantom.exceptions.DejaCuitException;
+
 import INFO.java.Projet.Composable;
 import INFO.java.Projet.Cuisable;
 import INFO.java.Projet.Nourriture;
@@ -19,16 +21,24 @@ public abstract class Viande extends Nourriture implements Cuisable, Composable 
     public Viande cuire() { // cuire 1 viande, cuisable 1 fois max
         if (cuit == false) {
             nutriments.augmenterStates(3.0);
+            return this.clone();
         } else {
-            // System.out.println("Impossible, la viande est déjà cuite");
+        throw new DejaCuitException();
         }
-        return ;// a voir
+        // a voir
     }
 
     public Plat composer(Composable composable) {
-        
-        return ; // a voir
+        Plat plat = new Plat();
+        plat.ajouter(this, 1);
+        if (composable instanceof Viande) {
+            plat.ajouter(composable, COEFF);
+        } else {
+            plat.ajouter(composable, COEFF);
+        }
+        return plat; // a voir
     }
+
 
 
 }
